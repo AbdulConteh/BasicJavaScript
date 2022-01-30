@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- internal css -->
+    <style>
+    body {
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .boxes {
+        border: 3px, solid, black;
+        justify-content: flex-start;
+        width: 400px;
+        height: 400px;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1 style="color:gray;font-size: 20px;"> Welcome! </h1>
+    </div>
+    <div class = "boxes">
+        {% for i in range(0, num) %} 
+        <!-- <div class ="boxes" style="background-color: {{color}};"></div>  -->
+        {% endfor %} 
+        </div>
+</body>
+</html>

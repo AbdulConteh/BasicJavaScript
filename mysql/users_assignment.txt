@@ -1,0 +1,89 @@
+	#	Time	Action	Message	Duration / Fetch
+3	1	22:38:01	SELECT * FROM users
+ LIMIT 0, 1000	0 row(s) returned	0.016 sec / 0.000 sec
+3	2	22:43:06	SELECT * FROM users
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+3	3	22:43:55	SELECT email FROM users
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+3	4	22:44:25	SELECT email FROM users 
+ WHERE id= 1
+ LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+3	5	22:45:05	SELECT id = 3 FROM users
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+3	6	22:46:04	SELECT * FROM users 
+ WHERE id = 3
+ LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+0	7	22:49:52	UPDATE user_assignment.users SET
+ last_name = 'Pancakes'	Error Code: 1049. Unknown database 'user_assignment'	0.016 sec
+0	8	22:50:00	UPDATE user_assignment.users SET
+ last_name = 'Pancakes'	Error Code: 1049. Unknown database 'user_assignment'	0.000 sec
+3	9	22:50:01	SELECT last_name FROM users 
+ WHERE id = 3
+ LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+0	10	22:50:01	UPDATE user_assignment.users SET
+ last_name = 'Pancakes'	Error Code: 1049. Unknown database 'user_assignment'	0.000 sec
+0	11	22:52:01	UPDATE users_assignment SET
+ last_name = 'Pancakes'
+ WHERE id = 3	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+3	12	22:52:02	SELECT * FROM users
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+0	13	22:52:02	UPDATE users_assignment SET
+ last_name = 'Pancakes'
+ WHERE id = 3	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+3	14	22:52:46	SELECT * FROM users
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+3	15	22:52:46	UPDATE users_assignment.users SET
+ last_name = 'Pancakes'
+ WHERE id = 3	1 row(s) affected
+ Rows matched: 1  Changed: 1  Warnings: 0	0.000 sec
+3	16	22:53:08	SELECT * FROM users
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+0	17	22:53:08	UPDATE users_assignment.last_name SET
+ last_name = 'Pancakes'
+ WHERE id = 3	Error Code: 1146. Table 'users_assignment.last_name' doesn't exist	0.000 sec
+3	18	22:53:14	SELECT * FROM users
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+0	19	22:53:14	UPDATE users_assignment.last_name SET
+ last_name = 'Pancakes'
+ WHERE id = 3	Error Code: 1146. Table 'users_assignment.last_name' doesn't exist	0.000 sec
+0	20	22:54:09	DELETE FROM users_assignment WHERE id = 2	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+0	21	22:54:10	DELETE FROM users_assignment WHERE id = 2	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+0	22	22:54:11	DELETE FROM users_assignment WHERE id = 2	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+0	23	22:54:26	DELETE FROM users_assignment WHERE id = 2	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+0	24	22:54:27	DELETE FROM users_assignment WHERE id = 2	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+0	25	22:55:11	SELECT * FROM users_assignment
+ LIMIT 0, 1000	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+0	26	22:55:14	SELECT * FROM users_assignment
+ LIMIT 0, 1000	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+0	27	22:55:15	SELECT * FROM users_assignment
+ LIMIT 0, 1000	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+0	28	22:56:10	SELECT * FROM users_assignment
+ LIMIT 0, 1000	Error Code: 1146. Table 'users_assignment.users_assignment' doesn't exist	0.000 sec
+3	29	22:56:18	SELECT * FROM users
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+3	30	22:56:53	DELETE FROM users WHERE id = 2	1 row(s) affected	0.109 sec
+3	31	22:56:55	DELETE FROM users WHERE id = 2	0 row(s) affected	0.015 sec
+3	32	22:57:01	DELETE FROM users WHERE id = 2	0 row(s) affected	0.000 sec
+3	33	22:57:02	DELETE FROM users WHERE id = 2	0 row(s) affected	0.000 sec
+3	34	22:57:25	DELETE FROM users WHERE id = 2	0 row(s) affected	0.000 sec
+3	35	22:57:48	SELECT * FROM users
+ LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+3	36	22:59:54	SELECT * FROM users
+ ORDER BY first_name ASC
+ LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+3	37	23:00:42	SELECT * FROM users
+ ORDER BY first_name ASC
+ LIMIT 0, 1000	3 row(s) returned	0.016 sec / 0.000 sec
+3	38	23:01:00	SELECT * FROM users
+ ORDER BY first_name DESC
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+3	39	23:02:02	SELECT * FROM users
+ ORDER BY first_name DESC
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+3	40	23:04:17	SELECT * FROM users
+ ORDER BY first_name DESC	3 row(s) returned	0.000 sec / 0.000 sec
+3	41	23:04:36	SELECT * FROM users
+ ORDER BY first_name DESC
+ LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+3	42	23:17:06	SELECT * FROM users
+ ORDER BY first_name DESC	3 row(s) returned	0.000 sec / 0.000 sec
