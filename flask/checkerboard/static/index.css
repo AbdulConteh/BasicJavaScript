@@ -1,0 +1,26 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+td {
+    margin: 4px;
+    padding: 4px;
+    height: 50px;
+    width: 50px;
+}
+tr {
+    margin: 4px;
+    padding: 4px;
+}
+table { 
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
