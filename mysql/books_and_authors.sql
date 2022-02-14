@@ -12,7 +12,7 @@ UPDATE books SET title = 'C#' WHERE id = 1;
 SELECT * FROM books;
 
 UPDATE authors SET name = 'Bill Shakespeare' WHERE id = 4;
-SELECT * FROM authors; 
+SELECT * FROM authors; artistartist
 
 INSERT INTO favorites (author_id, book_id)
 VALUES (1,1), (1,2), (2,1), (2,2), (2,3), (3,1), (3,2), (3,3), (3,4), (3,5);

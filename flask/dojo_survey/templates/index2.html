@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            border: 3px black solid;
+            width: 300px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            background-color: teal;
+            color: white;
+            margin-left: 228px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="result"> 
+        <h1 style="text-decoration: underline;"> Submitted Info </h1>
+        <p> Name:          {{session['name']}} </p>
+        <p> Dojo Location: {{session['dojo location']}}</p>
+        <p> Favorite Language: {{session['favorite language']}} </p>
+        <p> Comments: {{session['comments']}} </p>
+        </div>
+        <button><a href='/'> Go Back </a>  </button>
+    </div>
+</body>
+</html>

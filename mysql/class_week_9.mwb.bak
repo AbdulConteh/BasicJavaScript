@@ -1,0 +1,6 @@
+SELECT * FROM class_week_9.artist;
+
+INSERT INTO artist ( first_name, last_name, email )
+VALUES ( 'Elvis', 'Presley', 'theking@prodigy.net' );
+
+SELECT * FROM artist
