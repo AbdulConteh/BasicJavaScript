@@ -21,8 +21,8 @@ class Users:
     @classmethod
     def save(cls, data) :
         query = """
-            INSERT INTO users ( first_name , last_name , email, created_at)
-            VALUES ( %(first_name)s, %(last_name)s, %(email)s, NOW(), NOW();
+            INSERT INTO users ( first_name , last_name , email)
+            VALUES ( %(first_name)s, %(last_name)s, %(email)s);
             """ 
         result = connectToMySQL('users_assignment').query_db( query, data )
         return result
@@ -30,8 +30,7 @@ class Users:
     @classmethod
     def destroy(cls, data):
             query = "DELETE FROM users WHERE id = %(id)s"
-            result = connectToMySQL('users_assignment').query_db( query, data )
-            return result
+            return connectToMySQL('users_assignment').query_db( query, data )
 
     @classmethod
     def get_one(cls,data):

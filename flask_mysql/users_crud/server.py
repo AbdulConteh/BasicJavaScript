@@ -21,7 +21,7 @@ def create_user():
     Users.save(request.form)
     return redirect('/users')
 
-@app.route('/destroy/<int:users_id>')
+@app.route('/user/destroy/<int:users_id>')
 def destroy(users_id):
     data = {
         "id": users_id
