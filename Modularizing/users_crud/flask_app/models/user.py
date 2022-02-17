@@ -1,5 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-# model the class after the friend table from our database
+# used to model after tables in databases
 class Users:
     def __init__( self , data ):
         self.id = data['id']
