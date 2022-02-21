@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width: 800px;
+            display: flex;
+        }
+        .all_books{ 
+            border: black solid 5px;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            height:max-content;
+        } 
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class='new_books'> 
+            <h1> New Books </h1>
+            <form action='/books' methods='POST'>
+                <label for='title'> Title: </label>
+                <input type='text' id='title' name='title'><br>
+                <label for='num_of_pages'> Number of Pages: </label>
+                <input type='number' id='num_of_pages' name='num_of_pages'>
+                <input type='submit' value='Create'>
+            </form>
+        </div>
+        <div class="books">
+            <h1> All Books </h1>
+            <div class="all_books"><br>
+                {% for b in book %}
+                <p>
+                    <a href='/books/{{b.id}}'> {{b.title}} </a>
+                </p>
+                {% endfor %}
+            </div>
+        </div>
+        <a href='/authors'> Home </a>
+    </div>
+</body>
+</html>
