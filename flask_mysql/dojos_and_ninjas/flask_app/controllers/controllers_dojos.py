@@ -1,9 +1,31 @@
-# #routes
-# from flask import render_template,redirect,request
-# from flask_app import app
+from tkinter import N
+from flask import render_template, redirect, request
+from flask_app import app
+from flask_app.models.models_dojos import Dojo
 
-# from flask_app.models.models_dojos import Dojos
 
-# @app.route('/')
-# def index():
-#     return render_template ('index.html')
+@app.route('/')
+def index():
+    return redirect('/dojos')
+
+@app.route('/dojos')
+def dojos():
+    dojos = Dojo.get_all()
+    return render_template("dojos.html",all_dojos = dojos)
+
+
+@app.route('/new/dojo',methods=['POST'])
+def create_dojo():
+    Dojo.save(request.form)
+    return redirect('/dojos')
+
+@app.route('/dojo/<int:id>')
+def show_dojo(id):
+    data = {
+        "id": id
+    }
+    return redirect('/dojo/{{d.id}}', dojo=Dojo.get_one_with_ninjas(data))
+
+@app.route('/dojo_list')
+def dlist():
+    return render_template('dojo_list.html')
