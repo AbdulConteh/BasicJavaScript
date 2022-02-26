@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action='/create' method='post'>
+            <div class="container">
+                <label for='name'> Name: </label>
+                <input type='text' id='name' name='name'>
+            </div>
+            <div> 
+                <label for ='location'> Dojo Location: </label>
+                <select name='location' id=''>
+                    <option value=''>-- Select A Location --</option>
+                    <option value='Chicago'>Chicago</option>
+                    <option value='Seattle'>Seattle</option>
+                    <option value='Online'>Online</option>
+                    <option value='Burbank'>Burbank</option>
+                    <option value='Bellevue'>Bellevue</option>
+                </select>
+            </div>
+            <div> 
+                <label for ='language'> Favorite Language: </label>
+                <select name='language' id='language'>
+                    <option value=''>-- Select A Language --</option>
+                    <option value='CSS'>CSS</option>
+                    <option value='HTML'>HTML</option>
+                    <option value='C#'>C#</option>
+                    <option value='Javascript'>Javascript</option>
+                    <option value='Python'>Python</option>
+                </select>
+            </div>
+            <div> 
+                <label for ='comment'> Comments: </label>
+                <textarea name='comment' id='comment'></textarea>
+            </div>
+            <div>
+                <input type='submit' value='Button' >
+            </div>
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+</body>
+</html>

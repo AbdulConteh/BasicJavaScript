@@ -24,8 +24,5 @@ def show_dojo(id):
     data = {
         "id": id
     }
-    return redirect('/dojo/{{d.id}}', dojo=Dojo.get_one_with_ninjas(data))
+    return render_template('dojo_list.html', dojo=Dojo.get_one_with_ninjas(data))
 
-@app.route('/dojo_list')
-def dlist():
-    return render_template('dojo_list.html')

@@ -4,7 +4,6 @@ from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.controllers.controllers_ninja import ninjas
 
 class Dojo:
-
     def __init__(self, data):
         self.id = data['id']
         self.name = data['name']
@@ -31,12 +30,11 @@ class Dojo:
     @classmethod
     def get_one_with_ninjas(cls, data ):
         query = "SELECT * FROM dojos LEFT JOIN ninjas on dojos.id = ninjas.dojo_id WHERE dojos.id = %(id)s;"
-        results = connectToMySQL('dojo_ninjas').query_db(query,data)
+        results = connectToMySQL('dojos_and_ninjas_db').query_db(query,data)
         print(results)
         dojo = cls(results[0])
         for row in results:
             n = {
-                'id': row['ninjas.id'],
                 'first_name': row['first_name'],
                 'last_name': row['last_name'],
                 'age': row['age'],
