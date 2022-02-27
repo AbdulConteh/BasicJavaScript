@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action='/access' method='post'>
+            <div>
+                {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                {% if messages %}
+                    <h2> Try again!! </h2>
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="form-box">
+                <label for="email"> Email: </label>
+                <input type="text" id="text" name="text">
+                <input type="submit" value="Add Email">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
