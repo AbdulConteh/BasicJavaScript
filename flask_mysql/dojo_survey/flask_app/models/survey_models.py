@@ -9,6 +9,8 @@ class Dojos:
         self.location = data['location']
         self.language = data['language']
         self.comment = data['comment']
+        self.created_at = data['created_at']
+        self.updated_at = data['updated_at']
 
     @classmethod
     def save(cls, data):
@@ -22,6 +24,7 @@ class Dojos:
     def get_last_survey(cls):
         query = 'SELECT * FROM dojos ORDER BY dojos.id DESC LIMIT 1;'
         results = connectToMySQL(db).query_db(query)
+        print (results)
         return Dojos(results[0])
 
     @staticmethod

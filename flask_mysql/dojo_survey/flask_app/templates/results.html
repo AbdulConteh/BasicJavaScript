@@ -8,6 +8,12 @@
     <style>
         .container{
             border: black solid 3px;
+            text-align: center;
+        }
+        .wrapper {
+            width: 400px;
+            height: max-content;
+            align-content: center;
         }
     </style>
 </head>
@@ -15,12 +21,10 @@
     <div class="wrapper">
             <div class="container">
                 <h2> Submitted Info: </h2>
-            </div>
-            <div>
-                <p> Name: {{dojos.name}}</p>
-                <p> Dojo Location: {{dojos.location}}</p>
-                <p> Favorite Language: {{dojos.language}}</p>
-                <p> Comment: {{dojos.comment}}</p>
+                <p> Name: {{dojo.name}}</p>
+                <p> Dojo Location: {{dojo.location}}</p>
+                <p> Favorite Language: {{dojo.language}}</p>
+                <p> Comment: {{dojo.comment}}</p>
             </div>
         <a href='/'> Home </a>
     </div>

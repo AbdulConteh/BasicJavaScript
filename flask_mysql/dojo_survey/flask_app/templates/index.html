@@ -5,16 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    .wrapper {
+        width: 400px;
+        height: max-content;
+        align-content: center;
+        border: black solid 3px;
+        text-align: center;
+        }
+    .form-box {
+        margin: 5px;
+        padding: 5px;
+    }
+    </style>
 </head>
 <body>
     <div class="wrapper">
         <form action='/create' method='post'>
-            <div class="container">
+            <div class="form-box">
                 <label for='name'> Name: </label>
                 <input type='text' id='name' name='name'>
             </div>
-            <div> 
-                <label for ='location'> Dojo Location: </label>
+            <div class="form-box"> 
+                <label for='location'> Dojo Location: </label>
                 <select name='location' id=''>
                     <option value=''>-- Select A Location --</option>
                     <option value='Chicago'>Chicago</option>
@@ -24,8 +37,8 @@
                     <option value='Bellevue'>Bellevue</option>
                 </select>
             </div>
-            <div> 
-                <label for ='language'> Favorite Language: </label>
+            <div class="form-box"> 
+                <label for='language'> Favorite Language: </label>
                 <select name='language' id='language'>
                     <option value=''>-- Select A Language --</option>
                     <option value='CSS'>CSS</option>
@@ -35,11 +48,11 @@
                     <option value='Python'>Python</option>
                 </select>
             </div>
-            <div> 
+            <div class="form-box"> 
                 <label for ='comment'> Comments: </label>
                 <textarea name='comment' id='comment'></textarea>
             </div>
-            <div>
+            <div class="form-box">
                 <input type='submit' value='Button' >
             </div>
         </form>
