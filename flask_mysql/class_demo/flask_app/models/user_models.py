@@ -1,6 +1,9 @@
+from flask_app import app
 from flask import flash
 import re
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask_bcrypt import Bcrypt 
+bcrypt = Bcrypt(app)
 
 db = 'class_demo_db'
 
@@ -10,7 +13,6 @@ class User:
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.email = data['email']
-        self.date_of_birth = data['date_of_birth']
         self.password = data['password']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
@@ -18,8 +20,8 @@ class User:
     @classmethod
     def create_user(cls,data):
         query = """
-            INSERT INTO users ( first_name, last_name, email, date_of_birth, password)
-            VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(date_of_birth)s, %(password)s);
+            INSERT INTO users ( first_name, last_name, email, password)
+            VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(password)s);
         """
         return connectToMySQL(db).query_db(query, data)
 

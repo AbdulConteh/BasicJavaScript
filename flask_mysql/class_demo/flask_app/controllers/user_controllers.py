@@ -1,6 +1,8 @@
 from flask_app import app
 from flask import render_template, redirect, request
 from flask_app.models.user_models import User
+from flask_bcrypt import Bcrypt 
+bcrypt = Bcrypt(app)
 
 @app.route('/')
 def index():
@@ -12,9 +14,11 @@ def process():
         'first_name' : request.form['first_name'],
         'last_name' : request.form['last_name'],
         'email' : request.form['email'],
-        'date_of_birth' : request.form['date_of_birth'],
-        'password' : request.form['password']
+        'password' : request.form['password'],
+        'confirmpw' : request.form['confirmpw']
     }
+    pw_hash = bcrypt.generate_password_hash(request.form['password'])
+    data['pw_hash'] = pw_hash
     valid = User.create_user(data)
     if valid:
         results = User.create_user(data)
