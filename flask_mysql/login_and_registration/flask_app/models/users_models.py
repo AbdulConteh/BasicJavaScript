@@ -1,7 +1,6 @@
 import re
 from flask_app import app
 from flask import flash
-from flask_app.controllers import users_controllers
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_bcrypt import Bcrypt
 
@@ -68,7 +67,7 @@ class Users:
             flash("Invalid Email. Please try again!", "register")
             is_valid = False  
         if len(Users['password']) < 8:
-            flash("Password was entered incorrectly. Please try again!", "register")
+            flash("Password must be  8 characters. Please try again!", "register")
             is_valid = False 
         if Users['password'] != Users["cfw_password"]:
             flash("Password do not match. Please try gain", "register")

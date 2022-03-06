@@ -19,6 +19,7 @@ def create():
         "email" : request.form["email"],
         "password" : bcrypt.generate_password_hash(request.form['password'])
     }
+    print(data['password'])
     id = Users.save(data)
     session['users_id'] = id
     return redirect ('/')
@@ -34,7 +35,6 @@ def register():
     session['users_id'] = user.id
     return redirect('/profile')
 
-
 @app.route('/profile')
 def profile():
     if 'users_id' not in session:
@@ -42,6 +42,7 @@ def profile():
     data = {
         'id' : session['users_id']
     }
+    print(Users.get_id(data))
     return render_template("accepted.html", user=Users.get_id(data))
 
 @app.route('/logout')
