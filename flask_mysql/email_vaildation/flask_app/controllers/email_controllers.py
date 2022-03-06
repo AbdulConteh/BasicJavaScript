@@ -17,3 +17,4 @@ def create_email():
 @app.route('/results')
 def results():
     return render_template("info.html", e = Email.get_all())
+    
