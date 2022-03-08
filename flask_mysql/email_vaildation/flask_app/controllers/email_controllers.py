@@ -9,12 +9,16 @@ def index():
 
 @app.route('/access', methods=['POST'])
 def create_email():
-    if not Email.is_valid(request.form):
-        return redirect('/results')
     Email.save(request.form)
+    if not Email.validate_email(request.form):
+        return redirect('/results')
+    data = {
+        "email" : request.form["email"]
+    }
+    print(data['email'])
     return redirect('/results')
 
 @app.route('/results')
 def results():
     return render_template("info.html", e = Email.get_all())
-    
+
