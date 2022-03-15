@@ -32,7 +32,7 @@ class Message:
     def save(cls, data):
         query = """
             INSERT INTO message (content, sender_id, receiver_id)
-            VALUES %(content)s, %(sender_id)s, %(receiver_id)s;
+            VALUES (%(content)s, %(sender_id)s, %(receiver_id)s);
         """
         results = connectToMySQL(db).query_db(query, data)
         return results
@@ -40,9 +40,9 @@ class Message:
     @classmethod 
     def get_message(cls, data):
         query = """
-        SELECT user.first_name as sender, user2.first_name as receiver,
-        message.* FROM user LEFT JOIN message ON user.id = message.sender_id 
-        LEFT JOIN user as user2 ON user2.id = message.receiver_id WHERE user2.id = %(id)s
+            SELECT user.first_name as sender, user2.first_name as receiver,
+            message.* FROM user LEFT JOIN message ON user.id = message.sender_id 
+            LEFT JOIN user as user2 ON user2.id = message.receiver_id WHERE user2.id = %(id)s
         """
         results = connectToMySQL(db).query_db(query, data)
         messages = []
@@ -51,7 +51,7 @@ class Message:
         return messages
 
     @classmethod
-    def delete(cls, data):
+    def destroy(cls, data):
         query = " DELETE FROM message WHERE message.id = %(id)s "
         results = connectToMySQL(db).query_db(query, data)
         return results

@@ -48,11 +48,11 @@
         <div class="message_box">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">{{all_messages.sender}} said:</h4>
-                    <p class="card-text">{{all_messages.content}}</p>
+                    <h4 class="card-title">{{message.sender}} said:</h4>
+                    <p class="card-text">{{message.content}}</p>
                 </div>
                 <div class="card-footer">
-                    <a href='/delete/message/{{all_messages.id}}'> </a> Delete Message </a>
+                    <a href="/destroy/message/{{message.id}}"> Delete Message </a>
                 </div>
             </div>
         </div>
@@ -62,10 +62,10 @@
                 <br>
                 {% for u in users %}
                     {% if u.id != session.user_id %} 
-                    <form action='/create/message' post='post' >
+                    <form action='/post_message' method='post' >
                         <input type="hidden" name="sender_id" value={{session.user_id}}>
                         <input type="hidden" name="receiver_id" value={{u.id}}>
-                        <label for="content"> Message {{u.first_name}}: </label>
+                        <label for="receiver_id"> Message {{u.first_name}}: </label>
                         <textarea name="content" id="content" cols="30" rows="3"></textarea>
                         <input type="submit" value="Send Message!">
                     </form>
